@@ -2,10 +2,11 @@
 
 namespace App\Controller;
 
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-class HelloController
+class HelloController extends AbstractController
 {
     private array $messages = ['Hello', 'Hi', 'Bye!'];
     #[Route('/{limit<\d+>}', name: 'app_index')]
@@ -18,7 +19,10 @@ class HelloController
     #[Route('/messages/{id}', name: 'app_show_one', requirements: ['id' => '\d+'])]
     public function showOne(int $id): Response
     {
-        return new Response($this->messages[$id]);
+        // return new Response($this->messages[$id]);
+        return $this->render('hello/show_one_html.twig', [
+            'message' => $this->messages[$id]
+        ]);
     }
 
     // avoid route collusion 
