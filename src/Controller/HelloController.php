@@ -10,7 +10,7 @@ class HelloController extends AbstractController
 {
     private array $messages = ['Hello', 'Hi', 'Bye!'];
     #[Route('/{limit<\d+>}', name: 'app_index')]
-    public function index(int $limit): Response
+    public function index(int $limit=null): Response
     {
         return new Response(
             implode(' , ', array_slice($this->messages, 0, $limit))
