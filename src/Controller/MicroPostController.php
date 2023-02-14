@@ -33,4 +33,11 @@ class MicroPostController extends AbstractController
             'controller_name' => 'MicroPostController',
         ]);
     }
+
+    #[Route('/micro/post/{post}', name: 'post_show_one')]
+    public function showOne(MicroPost $post)
+    {
+        dd($post);
+        // return $this->render('template.html.twig');
+    }
 }
