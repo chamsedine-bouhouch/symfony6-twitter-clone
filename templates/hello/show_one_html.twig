@@ -1,3 +1,5 @@
 <div>
-<b>{{message}} </b>
+	<b>{{message.message}}
+	</b>
+	{{ include('hello/_message.html.twig',{message:message}) }}
 </div>

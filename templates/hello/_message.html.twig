@@ -1,0 +1,9 @@
+<div style="color:grey" >
+{% if date(message.created) > date('-1year') %}
+	<div>
+		{{message.created}}
+	</div>
+{% else %}
+	Older than 1 year
+{% endif %}
+</div>
